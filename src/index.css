@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased selection:bg-blue-500 selection:text-white;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Print Styles for Executive Report Export */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  header, footer, nav, button, select, input, .print\\:hidden {
+    display: none !important;
+  }
+
+  #printable-report {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    display: block !important;
+  }
+
+  .recharts-responsive-container {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 1.5cm;
+    size: auto;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
